@@ -1,2 +1,3 @@
-# gcp-redis-access
-Grants access to a Google Cloud Memorystore Redis
+# Redis Access
+
+Grants access to a Google Cloud Memorystore Redis.

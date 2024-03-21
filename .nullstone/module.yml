@@ -1,0 +1,16 @@
+org_name: nullstone
+name: gcp-redis-access
+friendly_name: Redis Access
+description: Grant an app access to a Redis instance/cluster.
+category: capability
+subcategory: datastores
+provider_types:
+    - gcp
+platform: redis
+subplatform: ""
+type: ""
+appCategories:
+    - container
+    - serverless
+    - server
+is_public: true
