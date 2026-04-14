@@ -1,16 +1,42 @@
+locals {
+  // user pass authorization is not supported yet
+  user_pass_encoded = ""
+}
+
 output "env" {
   value = [
     {
-      name  = "REDIS_HOST",
-      value = local.db_subdomain
+      name  = "REDIS_HOST"
+      value = local.host
     },
     {
       name  = "REDIS_PORT"
-      value = local.db_port
+      value = local.port
+    },
+    {
+      name  = "REDIS_ADDR"
+      value = local.endpoint
+    },
+    {
+      name  = "REDIS_TLS_ENABLED"
+      value = local.protocol == "rediss"
+    },
+    {
+      name  = "REDIS_USERNAME"
+      value = ""
+    }
+  ]
+}
+
+output "secrets" {
+  value = [
+    {
+      name  = "REDIS_PASSWORD"
+      value = ""
     },
     {
       name  = "REDIS_URL"
-      value = "${local.db_protocol}://${local.db_endpoint}/0"
+      value = "${local.protocol}://${local.user_pass_encoded}${local.endpoint}/0"
     }
   ]
 }
