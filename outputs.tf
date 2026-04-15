@@ -20,20 +20,12 @@ output "env" {
     {
       name  = "REDIS_TLS_ENABLED"
       value = local.protocol == "rediss"
-    },
-    {
-      name  = "REDIS_USERNAME"
-      value = ""
     }
   ]
 }
 
 output "secrets" {
   value = [
-    {
-      name  = "REDIS_PASSWORD"
-      value = ""
-    },
     {
       name  = "REDIS_URL"
       value = "${local.protocol}://${local.user_pass_encoded}${local.endpoint}/0"
